@@ -7,8 +7,9 @@ theme = {}
 --theme.font          = "sans 8"
 theme.font      = "Liberation Mono 10"
 
-theme.bg_normal     = "#222222"
-theme.bg_focus      = "#535d6c"
+--theme.bg_normal     = "#222222"
+theme.bg_normal     = "#171717"
+theme.bg_focus      = "#171717"
 theme.bg_urgent     = "#ff0000"
 theme.bg_minimize   = "#444444"
 
@@ -19,8 +20,14 @@ theme.fg_minimize   = "#ffffff"
 theme.fg_em 		= "#d6d6d6"
 
 theme.border_width  = "1"
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
+--theme.border_normal = "#000000" --Default
+theme.border_normal = "#101010"
+--theme.border_focus  = "#535d6c" --Default
+--theme.border_focus  = "#A6D4C9" --Tron like
+--theme.border_focus  = "#668B83" --Tron like
+theme.border_focus  = "#739E95" --Tron like
+
+--theme.border_focus  = "#1D8340"
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
@@ -88,7 +95,7 @@ theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/defau
 --theme.wallpaper = awful.util.getdir("config") .. "/themes/icarus/background.png"
 --theme.wallpaper_cmd = { "awsetbg /usr/share/awesome/themes/icarus/background.png" }
 --theme.wallpaper_cmd = { "awsetbg -f /usr/bin/nitrogen --restore" }
-theme.wallpaper =  themes_dir .. "/icarus/background5.jpg"
+theme.wallpaper =  themes_dir .. "/icarus/background.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = "/usr/share/awesome/themes/icarus/layout-huge-fill/fairh.png"

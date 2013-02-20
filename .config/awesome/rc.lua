@@ -48,6 +48,9 @@ local vicious = require("vicious")
 -- Transparency Fix
 awful.util.spawn_with_shell("xcompmgr &")
 
+-- Java GUI's Fix
+awful.util.spawn_with_shell("wmname LG3D &")
+
 
 ----------------------------------------------------------------------
 -- => Error_handling
@@ -83,7 +86,7 @@ end
 -- => Theme
 ----------------------------------------------------------------------
 
-user        = ("odin")
+user        = ("icarus")
 ctheme       = ("icarus")
 
 -- Themes define colours, icons, and wallpapers
@@ -101,7 +104,7 @@ modkey      = "Mod4"
 terminal    = "urxvt"
 editor      = os.getenv("EDITOR") or "vim"
 editor_cmd  = terminal .. " -e " .. editor
-fm          = "thunar"
+fm          = "spacefm"
 books       = "/media/windows/Dev/Books"
 
 
@@ -142,7 +145,8 @@ end
 ----------------------------------------------------------------------
 
 tags = {
-  names  = { "α", "β", "δ", "λ", "μ", "π", "σ", "ω", "ϛ", },
+  --names  = { "α", "β", "δ", "λ", "μ", "π", "σ", "ω", "ϛ", },
+  names  = { "◼", "◼", "◼", "◼", "◼", "◼", "◼", "◼", "◼", },
   layout = { layouts[1], layouts[2], layouts[1],layouts[1],layouts[1],
              layouts[1], layouts[1], layouts[1], layouts[2]
 }}
@@ -510,14 +514,18 @@ for s = 1, screen.count() do
 ----------------------------------------------------------------------
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
+	--[[ Menu
     left_layout:add(mylauncher)
+	--]]
     left_layout:add(mytaglist[s])
+	---[[
     left_layout:add(mypromptbox[s])
+	--]]
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    ---[[ Space
+    --[[ Space
     right_layout:add(space)
     --]]
     ---[[ CPU usage widget by Luis Manuel Ramirez Vargas
@@ -539,7 +547,9 @@ for s = 1, screen.count() do
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
+	---[[
     layout:set_middle(mytasklist[s])
+	--]]
     layout:set_right(right_layout)
 
     mywibox[s]:set_widget(layout)
@@ -694,6 +704,7 @@ awful.rules.rules = {
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
+					 size_hints_honor = false,
                      buttons = clientbuttons } },
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
